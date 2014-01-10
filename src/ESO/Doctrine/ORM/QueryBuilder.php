@@ -40,6 +40,6 @@ class QueryBuilder extends DoctrineQueryBuilder
      */
     protected function alias()
     {
-        return $this->alias();
+        return $this->alias;
     }
 }

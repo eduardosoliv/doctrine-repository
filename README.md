@@ -8,3 +8,4 @@ An alternative doctrine entity base repository
 ## Requirements ##
 
 * PHP >= 5.4
+* Doctrine ORM >= 2.2.3

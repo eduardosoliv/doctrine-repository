@@ -1,0 +1,18 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+
+before_script:
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar install --dev
+
+script: bin/phpunit -c app --coverage-text
+
+after_script:
+  - bin/phpcs -v --report=summary --standard=PSR1,PSR2 src
+  - bin/phpmd src text codesize,unusedcode,design
+  - bin/phpmd tests text codesize,unusedcode,design
+

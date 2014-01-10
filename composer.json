@@ -1,0 +1,26 @@
+{
+    "name": "eso/doctrine-repository",
+    "type": "library",
+    "description": "An alternative doctrine entity base repository ",
+    "keywords": ["php", "doctrine", "repository", "entity"],
+    "homepage": "http://github.com/entering/doctrine-repository",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduardo Oliviveira",
+            "email": "entering@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "squizlabs/php_codesniffer": "~1.5.0",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "ESO\\Doctrine\\ORM": "src/" }
+    }
+}

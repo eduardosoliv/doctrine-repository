@@ -9,7 +9,7 @@ before_script:
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
 
-script: bin/phpunit -c app --coverage-text
+script: vendor/bin/phpunit -c app --coverage-text
 
 after_script:
   - vendor/bin/phpcs -v --report=summary --standard=PSR1,PSR2 src/ tests/

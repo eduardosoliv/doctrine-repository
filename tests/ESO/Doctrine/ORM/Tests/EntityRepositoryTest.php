@@ -13,6 +13,7 @@ namespace ESO\Doctrine\ORM\Tests;
 
 use ESO\IReflection\ReflClass;
 use Doctrine\ORM\Query\Expr\From;
+use Doctrine\ORM\Query\Expr\Select;
 
 /**
  * EntityRepository
@@ -37,11 +38,20 @@ class EntityRepositoryTest extends TestCase
         $this->assertInstanceOf('ESO\Doctrine\ORM\QueryBuilder', $qb);
 
         $dqlParts = $qb->getDQLParts();
+        $this->assertArrayHasKey('select', $dqlParts);
         $this->assertArrayHasKey('from', $dqlParts);
 
-        $from = $dqlParts['from'];
-        $this->assertCount(1, $from);
+        $this->assertCount(1, $dqlParts['select']);
+        $this->assertArrayHasKey(0, $dqlParts['select']);
+        /** @var Select $select */
+        $select = $dqlParts['select'][0];
+        $selectParts = $select->getParts();
+        $this->assertCount(1, $selectParts);
+        $this->assertArrayHasKey(0, $selectParts);
+        $this->assertEquals($alias, $selectParts[0]);
 
+        $this->assertCount(1, $dqlParts['from']);
+        $this->assertArrayHasKey(0, $dqlParts['from']);
         /** @var From $from */
         $from = $dqlParts['from'][0];
         $this->assertInstanceOf('Doctrine\ORM\Query\Expr\From', $from);

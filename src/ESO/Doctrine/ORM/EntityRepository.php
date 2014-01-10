@@ -78,6 +78,7 @@ class EntityRepository
     protected function createQueryBuilder()
     {
         return $this->getQueryBuilder($this->getEntityManager(), $this->alias())
+                    ->select($this->alias())
                     ->from($this->getEntityName(), $this->alias());
     }
 

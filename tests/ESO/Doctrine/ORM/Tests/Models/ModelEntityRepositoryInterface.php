@@ -11,23 +11,17 @@
 
 namespace ESO\Doctrine\ORM\Tests\Models;
 
-use ESO\Doctrine\ORM\EntityRepository;
 use ESO\Doctrine\ORM\QueryBuilder;
 
 /**
- * ModelBEntityRepository
+ * ModelEntityRepositoryInterface
  */
-class ModelBEntityRepository extends EntityRepository implements ModelEntityRepositoryInterface
+interface ModelEntityRepositoryInterface
 {
     /**
      * @param int $id
      *
      * @return QueryBuilder
      */
-    public function getByIdQB($id)
-    {
-        return $this->createQueryBuilder()
-                    ->where($this->alias() . '.id = :id')
-                    ->setParameter('id', $id);
-    }
+    public function getByIdQB($id);
 }

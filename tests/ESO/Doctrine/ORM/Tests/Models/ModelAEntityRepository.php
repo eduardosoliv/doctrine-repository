@@ -20,7 +20,7 @@ use ESO\Doctrine\ORM\QueryBuilder;
  *
  * @method \ESO\Doctrine\ORM\Tests\Models\ModelAQueryBuilder createQueryBuilder()
  */
-class ModelAEntityRepository extends EntityRepository
+class ModelAEntityRepository extends EntityRepository implements ModelEntityRepositoryInterface
 {
     /**
      * @param EntityManager $entityManager

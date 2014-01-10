@@ -14,6 +14,7 @@ namespace ESO\Doctrine\ORM\Tests;
 use ESO\IReflection\ReflClass;
 use Doctrine\ORM\Query\Expr\From;
 use Doctrine\ORM\Query\Expr\Select;
+use ESO\Doctrine\ORM\Tests\Models\ModelEntityRepositoryInterface;
 
 /**
  * EntityRepository
@@ -31,6 +32,7 @@ class EntityRepositoryTest extends TestCase
         $entityName = 'ModelA';
         $alias = 'a';
 
+        /** @var ModelEntityRepositoryInterface $repository */
         $repository = new $model($entityManager, 'ModelA', 'a');
 
         $qb = $repository->getByIdQB(1);

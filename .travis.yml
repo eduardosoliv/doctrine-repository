@@ -1,13 +1,25 @@
 language: php
 
-php:
-  - 5.4
-  - 5.5
-
-env:
-  - DOCTRINE_VERSION=2.2.*
-  - DOCTRINE_VERSION=2.3.*
-  - DOCTRINE_VERSION=2.4.*
+matrix:
+  include:
+    - php: 5.4
+      env: DOCTRINE_VERSION=2.2.*
+    - php: 5.4
+      env: DOCTRINE_VERSION=2.3.*
+    - php: 5.4
+      env: DOCTRINE_VERSION=2.4.*
+    - php: 5.5
+      env:
+        - COVERALLS=yes
+        - DOCTRINE_VERSION=2.2.*
+    - php: 5.5
+      env:
+        - COVERALLS=yes
+        - DOCTRINE_VERSION=2.3.*
+    - php: 5.5
+      env:
+        - COVERALLS=yes
+        - DOCTRINE_VERSION=2.4.*
 
 before_script:
   - curl -s http://getcomposer.org/installer | php
@@ -17,7 +29,7 @@ before_script:
 script:
   - vendor/bin/phpunit --coverage-text
 
-after_script:
+after_success:
   - vendor/bin/phpcs -v --report=summary --standard=PSR1,PSR2 src/ tests/
   - vendor/bin/phpmd src/,tests/ text codesize,unusedcode,design
-  - vendor/bin/coveralls
+#  - if [ "$COVERALLS" = "yes" ]; then php composer.phar require --dev satooshi/php-coveralls dev-master && vendor/bin/coveralls -vvv; fi

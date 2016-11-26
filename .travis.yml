@@ -32,4 +32,4 @@ script:
 after_success:
   - vendor/bin/phpcs -v --report=summary --standard=PSR1,PSR2 src/ tests/
   - vendor/bin/phpmd src/,tests/ text codesize,unusedcode,design
-#  - if [ "$COVERALLS" = "yes" ]; then php composer.phar require --dev satooshi/php-coveralls dev-master && vendor/bin/coveralls -vvv; fi
+  - if [ "$COVERALLS" = "yes" ]; then php composer.phar require --dev satooshi/php-coveralls dev-master && vendor/bin/coveralls -vvv; fi

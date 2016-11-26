@@ -5,7 +5,7 @@ Doctrine Repository
 [![Build Status](https://travis-ci.org/entering/doctrine-repository.png?branch=master)](https://travis-ci.org/entering/doctrine-repository)
 [![Coverage Status](https://coveralls.io/repos/github/entering/doctrine-repository/badge.svg?branch=master)](https://coveralls.io/github/entering/doctrine-repository?branch=master)
 
-An alternative doctrine entity base repository
+An alternative doctrine entity base repository.
 
 ## Requirements ##
 
